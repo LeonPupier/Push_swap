@@ -6,7 +6,7 @@
 #    By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 08:32:06 by lpupier           #+#    #+#              #
-#    Updated: 2022/12/21 15:13:50 by lpupier          ###   ########.fr        #
+#    Updated: 2022/12/22 14:04:02 by lpupier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,17 @@ DIR_LIBFT	=	libft/
 HEADERS	=	$(DIR_HEADERS)push_swap.h
 
 SRCS	=	$(DIR_SRCS)main.c \
-			$(DIR_SRCS)numbers_gestion.c
+			$(DIR_SRCS)numbers_gestion.c \
+			$(DIR_SRCS)sort.c \
+			$(DIR_SRCS)utils.c \
+			$(DIR_SRCS)algo1.c \
+			$(DIR_SRCS)algo2.c \
+			$(DIR_SRCS)algo3.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
 # Rules
-.PHONY :	all re clean fclean libft
+.PHONY :	all re clean fclean libft watermark
 
 all :		${NAME}
 
@@ -50,3 +55,19 @@ re :		fclean all
 
 libft:
 	make -C $(DIR_LIBFT)
+
+watermark:
+			@echo "$$WATERMARK"
+
+# Text art
+define WATERMARK
+
+██╗  ██╗██████╗ 
+██║  ██║╚════██╗ name:  Leon Pupier
+███████║ █████╔╝ login: lpupier
+╚════██║██╔═══╝  
+     ██║███████╗
+     ╚═╝╚══════╝lyon.fr
+
+endef
+export WATERMARK

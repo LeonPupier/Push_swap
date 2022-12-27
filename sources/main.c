@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:53:15 by lpupier           #+#    #+#             */
-/*   Updated: 2022/12/22 08:56:44 by lpupier          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:10:22 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,18 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (ft_printf("Error\n"), EXIT_FAILURE);
-	data.len_list = argc - 1;
+	data.len_stack = argc - 1;
 	if (!extract_numbers(&data, argv))
 		return (ft_printf("Error\n"), EXIT_FAILURE);
 	if (!recover_list_index(&data))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		return (free(data.stack_a), ft_printf("Error\n"), EXIT_FAILURE);
 	if (is_sorted(&data))
-		return (EXIT_SUCCESS);
+		return (free_memory(&data), EXIT_SUCCESS);
+	data.stack_b = malloc(sizeof(int) * data.len_stack);
+	if (data.len_stack <= 5)
+		sort_small_stack(&data);
+	else
+		sort_big_stack(&data);
+	free_memory(&data);
 	return (EXIT_SUCCESS);
 }
