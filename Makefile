@@ -6,7 +6,7 @@
 #    By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 08:32:06 by lpupier           #+#    #+#              #
-#    Updated: 2022/12/22 14:04:02 by lpupier          ###   ########.fr        #
+#    Updated: 2022/12/29 19:01:53 by lpupier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,7 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_SRCS)numbers_gestion.c \
 			$(DIR_SRCS)sort.c \
 			$(DIR_SRCS)utils.c \
-			$(DIR_SRCS)algo1.c \
-			$(DIR_SRCS)algo2.c \
-			$(DIR_SRCS)algo3.c \
+			$(DIR_SRCS)algo.c
 
 OBJS	=	$(SRCS:.c=.o)
 

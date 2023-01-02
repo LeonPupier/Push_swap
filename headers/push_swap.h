@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:56:24 by lpupier           #+#    #+#             */
-/*   Updated: 2022/12/22 14:08:30 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/02 10:59:22 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,37 @@
 # define PUSH_SWAP_H
 
 // Librairies
-# include <limits.h>
 # include <stdlib.h>
 
 // Headers
 # include "../libft/libft.h"
 
+// Macros
+# define EMPTY 0
+
 // Stack Operations
 enum {
 	SA,
-	SB,
-	SS,
 	PA,
 	PB,
-	RA,
-	RB,
-	RR,
-	RRA,
-	RRB,
-	RRR
+	RA
 };
 
 // Structure list data
 typedef struct s_data {
+	int	*list_original;
 	int	*stack_a;
 	int	*stack_b;
-	int	*list_index;
-	int	len_stack;
+	int	len_stack_default;
+	int	len_stack_a;
+	int	len_stack_b;
 }	t_data;
 
 // numbers_gestion.c
 
 int		extract_numbers(t_data *data, char **list_str);
-int		exist_in_list(t_data *data, int nb, int max);
+int		extract_one_argument(t_data *data, char *str);
+int		exist_in_list(t_data *data, long nb, int max);
 int		recover_list_index(t_data *data);
 int		is_sorted(t_data *data);
 
@@ -55,24 +53,22 @@ int		is_sorted(t_data *data);
 
 int		sort_operations(t_data *data, int mode);
 void	sort_small_stack(t_data *data);
+void	sort_stack_3(t_data *data);
 void	sort_big_stack(t_data *data);
 
 // operations.c
 
 void	sa(t_data *data);
-void	sb(t_data *data);
-void	ss(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
 void	ra(t_data *data);
-void	rb(t_data *data);
-void	rr(t_data *data);
-void	rra(t_data *data);
-void	rrb(t_data *data);
-void	rrr(t_data *data);
 
 // utils.c
 
+int		len_tab(char **tab);
+void	free_tab(char **tab);
 void	free_memory(t_data *data);
+
+void	display_stack(int *tab, int len, char c); // REMOVE AFTER TESTS
 
 #endif

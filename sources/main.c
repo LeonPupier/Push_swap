@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:53:15 by lpupier           #+#    #+#             */
-/*   Updated: 2022/12/22 14:10:22 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/02 13:47:06 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,22 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	if (argc < 2)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	data.len_stack = argc - 1;
+		return (write(2, "Error\n", 6), EXIT_FAILURE);
+	data.len_stack_default = argc - 1;
 	if (!extract_numbers(&data, argv))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		return (write(2, "Error\n", 6), EXIT_FAILURE);
 	if (!recover_list_index(&data))
-		return (free(data.stack_a), ft_printf("Error\n"), EXIT_FAILURE);
+		return (free(data.list_original), write(2, "Error\n", 6), EXIT_FAILURE);
+	data.stack_b = ft_calloc(sizeof(int), data.len_stack_a);
+	if (data.stack_b == NULL)
+		return (free(data.list_original), free(data.stack_a), \
+			write(2, "Error\n", 6), EXIT_FAILURE);
+	data.len_stack_b = 0;
 	if (is_sorted(&data))
 		return (free_memory(&data), EXIT_SUCCESS);
-	data.stack_b = malloc(sizeof(int) * data.len_stack);
-	if (data.len_stack <= 5)
+	if (data.len_stack_a <= 5)
 		sort_small_stack(&data);
 	else
 		sort_big_stack(&data);
-	free_memory(&data);
-	return (EXIT_SUCCESS);
+	return (free_memory(&data), EXIT_SUCCESS);
 }

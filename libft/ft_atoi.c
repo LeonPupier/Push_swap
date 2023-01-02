@@ -6,12 +6,11 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:19:49 by lpupier           #+#    #+#             */
-/*   Updated: 2022/12/22 08:12:50 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/02 13:44:03 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
 static long long int	ft_conv(long long int res)
 {
@@ -23,7 +22,7 @@ static long long int	ft_conv(long long int res)
 		return (res);
 }
 
-long	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	long long int	result;
 	int				idx;
@@ -32,8 +31,8 @@ long	ft_atoi(const char *str)
 	result = 0;
 	idx = 0;
 	sign = 1;
-	while (str[idx] == ' ' || (str[idx] >= 9 && str[idx] <= 13))
-		idx++;
+	if (!ft_strncmp(str, "-2147483648", 11))
+		return (-2147483648);
 	if (str[idx] == '+' || str[idx] == '-')
 	{	
 		if (str[idx] == '-')
@@ -43,11 +42,11 @@ long	ft_atoi(const char *str)
 	while (str[idx] && str[idx] >= '0' && str[idx] <= '9')
 	{
 		if ((int)result != (((int)result * 10 + (str[idx] - 48)) / 10))
-			return (2147483648);
+			return (2147483649);
 		result = result * 10 + str[idx] - 48;
 		idx++;
 	}
 	if (str[idx])
-		return (2147483648);
-	return ((int)ft_conv(result * sign));
+		return (2147483649);
+	return ((long)ft_conv(result * sign));
 }
