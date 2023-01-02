@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 09:32:17 by lpupier           #+#    #+#             */
-/*   Updated: 2022/12/30 14:28:21 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:14:37 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,4 @@ void	free_memory(t_data *data)
 	free(data->list_original);
 	free(data->stack_a);
 	free(data->stack_b);
-}
-
-void	display_stack(int *tab, int len, char c)
-{
-	int	count;
-
-	ft_printf("STACK %c: [", c);
-	count = 0;
-	while (count < len)
-	{
-		ft_printf("%d", tab[count]);
-		count++;
-		if (count < len)
-			ft_printf(", ");
-	}
-	ft_printf("]\n");
 }

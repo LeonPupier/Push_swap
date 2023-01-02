@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:56:24 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/02 10:59:22 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:14:28 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,5 @@ void	ra(t_data *data);
 int		len_tab(char **tab);
 void	free_tab(char **tab);
 void	free_memory(t_data *data);
-
-void	display_stack(int *tab, int len, char c); // REMOVE AFTER TESTS
 
 #endif

@@ -6,13 +6,19 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:12:23 by lpupier           #+#    #+#             */
-/*   Updated: 2022/12/30 15:42:48 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:14:01 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Headers
 #include "../headers/push_swap.h"
 
+/**
+ * @brief Swap the first 2 elements at the top of stack a.
+ * Do nothing if there is only one or no elements.
+ * 
+ * @param data Data structure containing my variables (see push_swap.h).
+ */
 void	sa(t_data *data)
 {
 	int	temp;
