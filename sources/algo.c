@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:12:23 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/02 14:14:01 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/03 13:16:16 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,22 @@ void	ra(t_data *data)
 	while (--i > 0)
 		data->stack_a[i] = data->stack_a[i - 1];
 	data->stack_a[i] = last;
+}
+
+/**
+ * @brief Shift down all elements of stack a by 1.
+ * The last element becomes the first one.
+ * 
+ * @param data Data structure containing my variables (see push_swap.h).
+ */
+void	rra(t_data *data)
+{
+	int	first;
+	int	i;
+
+	first = data->stack_a[0];
+	i = -1;
+	while (++i < data->len_stack_a)
+		data->stack_a[i] = data->stack_a[i + 1];
+	data->stack_a[data->len_stack_a - 1] = first;
 }

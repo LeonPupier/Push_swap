@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:02:21 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/02 13:46:33 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/03 14:02:08 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	extract_one_argument(t_data *data, char *str)
 	{
 		nb = ft_atoi(list_arg[len]);
 		if (nb > INT_MAX || nb < INT_MIN || exist_in_list(data, nb, len))
-			return (free(data->list_original), 0);
+			return (free_tab(list_arg), free(data->list_original), 0);
 		data->list_original[data->len_stack_default - 1 - len] = nb;
 		len++;
 	}

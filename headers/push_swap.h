@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:56:24 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/02 14:14:28 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/03 13:44:33 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ enum {
 	SA,
 	PA,
 	PB,
-	RA
+	RA,
+	RRA
 };
 
 // Structure list data
@@ -54,6 +55,7 @@ int		is_sorted(t_data *data);
 int		sort_operations(t_data *data, int mode);
 void	sort_small_stack(t_data *data);
 void	sort_stack_3(t_data *data);
+void	sort_stack_4_5(t_data *data, int min);
 void	sort_big_stack(t_data *data);
 
 // operations.c
@@ -62,10 +64,12 @@ void	sa(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
 void	ra(t_data *data);
+void	rra(t_data *data);
 
 // utils.c
 
 int		len_tab(char **tab);
+int		get_smallest_value(int *tab, int size);
 void	free_tab(char **tab);
 void	free_memory(t_data *data);
 
