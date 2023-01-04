@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:53:15 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/02 13:47:06 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/04 13:29:38 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	if (argc < 2)
-		return (write(2, "Error\n", 6), EXIT_FAILURE);
 	data.len_stack_default = argc - 1;
 	if (!extract_numbers(&data, argv))
 		return (write(2, "Error\n", 6), EXIT_FAILURE);

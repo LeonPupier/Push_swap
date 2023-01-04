@@ -6,7 +6,7 @@
 #    By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 08:32:06 by lpupier           #+#    #+#              #
-#    Updated: 2022/12/29 19:01:53 by lpupier          ###   ########.fr        #
+#    Updated: 2023/01/04 13:28:41 by lpupier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ fclean :	clean
 re :		fclean all
 
 libft:
-	make -C $(DIR_LIBFT)
+			make -C $(DIR_LIBFT)
 
 watermark:
 			@echo "$$WATERMARK"
