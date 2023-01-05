@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:56:24 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/03 13:44:33 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/05 13:06:57 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_data {
 
 int		extract_numbers(t_data *data, char **list_str);
 int		extract_one_argument(t_data *data, char *str);
-int		exist_in_list(t_data *data, long nb, int max);
+int		exist_in_list(t_data *data, long long nb, int max);
 int		recover_list_index(t_data *data);
 int		is_sorted(t_data *data);
 

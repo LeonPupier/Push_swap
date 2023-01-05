@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:02:21 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/03 14:02:08 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/05 13:07:34 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int	extract_one_argument(t_data *data, char *str)
  * @return (int) Returns 1 if "nb" is present in the list of integers,
  * 0 otherwise.
  */
-int	exist_in_list(t_data *data, long nb, int max)
+int	exist_in_list(t_data *data, long long nb, int max)
 {
-	long	count;
+	int	count;
 
 	count = 0;
 	while (count < max)
