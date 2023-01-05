@@ -6,7 +6,7 @@
 /*   By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:02:21 by lpupier           #+#    #+#             */
-/*   Updated: 2023/01/05 13:07:34 by lpupier          ###   ########.fr       */
+/*   Updated: 2023/01/05 13:35:55 by lpupier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	exist_in_list(t_data *data, long long nb, int max)
 	count = 0;
 	while (count < max)
 	{
-		if (data->list_original[data->len_stack_default - count] == nb)
+		if (data->list_original[data->len_stack_default - 1 - count] == nb)
 			return (1);
 		count++;
 	}
