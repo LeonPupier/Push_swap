@@ -6,7 +6,7 @@
 #    By: lpupier <lpupier@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 08:32:06 by lpupier           #+#    #+#              #
-#    Updated: 2023/01/04 13:28:41 by lpupier          ###   ########.fr        #
+#    Updated: 2023/01/05 13:00:22 by lpupier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS		=	-Wall -Wextra -Werror
 DIR_SRCS	=	sources/
 DIR_HEADERS	=	headers/
 DIR_LIBFT	=	libft/
+LIBFT		=	$(DIR_LIBFT)libft.a
 
 # Files path
 HEADERS	=	$(DIR_HEADERS)push_swap.h
@@ -31,31 +32,33 @@ SRCS	=	$(DIR_SRCS)main.c \
 OBJS	=	$(SRCS:.c=.o)
 
 # Rules
-.PHONY :	all re clean fclean libft watermark
+.PHONY :	all re clean fclean FORCE watermark
 
-all :		${NAME}
+all :	 	${NAME}
 
 %.o: %.c	$(HEADERS) Makefile
 			$(CC) $(CFLAGS) -c $< -o $@
 
-${NAME}:	libft ${OBJS}
+${NAME}:	$(LIBFT) ${OBJS}
 			$(CC) $(CFLAGS) $(OBJS) $(DIR_LIBFT)libft.a -o $(NAME)
 
-clean :
+$(LIBFT):	FORCE
+			$(MAKE) -C $(DIR_LIBFT)
+
+clean:
 			${RM} ${OBJS}
 			make clean -C $(DIR_LIBFT)
 
-fclean :	clean
+fclean:		clean
 			${RM} ${NAME} 
 			make fclean -C $(DIR_LIBFT)
 
 re :		fclean all
 
-libft:
-			make -C $(DIR_LIBFT)
-
 watermark:
 			@echo "$$WATERMARK"
+
+FORCE:
 
 # Text art
 define WATERMARK
