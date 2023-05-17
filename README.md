@@ -1,6 +1,6 @@
 # Push-Swap
 
-This project was completed as part of the curriculum at École 42. The goal of the project is to sort a stack of integers using a limited set of operations.
+This project was completed as part of the curriculum at École 42. The goal of the project is to sort a stack of integers using a limited set of operations. 
 
 ## Installation
 
